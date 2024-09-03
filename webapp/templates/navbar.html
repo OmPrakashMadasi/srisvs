@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <!-- Brand -->
+    <a class="navbar-brand" href="{% url 'index' %}">
+      <img src="https://srisvspearls.com/wp-content/uploads/2023/12/cropped-SRISVSLOGO-removebg-preview.png" width="80px" alt="srisvsjewellery">
+      <b style="color:  #e13b0b" > SVS Jewellery </b>
+    </a>
+
+    <!-- Navbar links -->
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Blog</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Category</a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="{% url 'all_products' %}">All Products</a></li>
+          <li><hr class="dropdown-divider" /></li>
+          <li><a class="dropdown-item" href="{% url 'category' 'Traditional Jewellery' %}">Popular Items</a></li>
+          <li><a class="dropdown-item" href="{% url 'category' 'Bracelets Jewellery' %}">New Arrivals</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Search form -->
+    <form class="d-flex" action="{% url 'search' %}" role="search" style="max-width: 300px;" method="get">
+        <div class="input-group">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="searched">
+          <button class="btn btn-outline-success" type="submit">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </form>
+
+    <!-- Right side (Profile, Cart, Login/Register) -->
+    <div class="d-flex align-items-center ms-3">
+      <!-- Cart -->
+      <a href="{% url 'cart_summary' %}" class="btn btn-outline-dark me-2">
+        <i class="bi-cart-fill me-1"></i><span class="badge bg-danger text-white ms-1 rounded-pill" id="cart_quantity">{{ cart|length }}</span>
+      </a>
+
+      <!-- Profile or Login/Register -->
+      {% if user.is_authenticated %}
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="{{ user.profile.image.url }}" alt="Profile Picture" class="rounded-circle" width="30" height="30">
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+          <li><a class="dropdown-item" href="{% url 'update_user' %}">User Profile</a></li>
+          <li><a class="dropdown-item" href="{% url 'update_info' %}">User Info</a></li>
+        </ul>
+      </div>
+      <a class="btn btn-outline-secondary ms-2" href="{% url 'logout' %}">
+        <i class="bi bi-box-arrow-right"></i> Logout
+      </a>
+      {% else %}
+      <a class="btn btn-outline-secondary ms-2" href="{% url 'login' %}">
+        <i class="bi bi-box-arrow-left"></i> Login
+      </a>
+      <a class="btn btn-outline-success ms-2" href="{% url 'register' %}">
+        <i class="bi bi-r-square-fill"></i> Register Here
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</nav>

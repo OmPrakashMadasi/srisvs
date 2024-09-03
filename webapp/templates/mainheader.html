@@ -1,0 +1,41 @@
+<!-- Header -->
+<header class="bg-dark py-3">
+    <div id="productnames" class="container-fluid">
+        <button class="header-toggler d-md-none " type="button" data-bs-toggle="collapse" data-bs-target="#headerNav" aria-controls="headerNav" aria-expanded="false" aria-label="Toggle header navigation">
+            <span class="header-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-md-block " id="headerNav">
+            <ul class="nav flex justify-content-center">
+              <!--   <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="{% url 'category' 'Traditional Jewellery' %}" id="traditionalDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Traditional Jewellery
+                    </a>
+                   <ul class="dropdown-menu" aria-labelledby="traditionalDropdown">
+                        <li><a class="dropdown-item" href="#">Antique</a></li>
+                        <li><a class="dropdown-item" href="#">Temple</a></li>
+                        <li><a class="dropdown-item" href="#">Bridal</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="{% url 'category' 'Bracelets Jewellery' %}" id="braceletsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Bracelets Jewellery
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="braceletsDropdown">
+                        <li><a class="dropdown-item" href="#">Cuff Jewellery</a></li>
+                        <li><a class="dropdown-item" href="#">Tennis Jewellery</a></li>
+                        <li><a class="dropdown-item" href="#">Charm Jewellery</a></li>
+                    </ul>
+                </li> -->
+                <li class="nav-item"><a class="nav-link" href="{% url 'category' 'Traditional Jewellery' %}">Traditional Jewellery</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'category' 'Bracelets' %}">Bracelets </a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'category' 'Fancy Jewellery' %}">Fancy Jewellery</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'category' 'Pearl Jewellery' %}">Pearl Jewellery</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'category' 'Kundan Sets Jewellery' %}">Kundan Sets Jewellery</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'category' 'Handmade Jewellery' %}">Handmade Jewellery</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'category' 'Thread Jewellery' %}">Thread Jewellery</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'category' 'Anklets' %}">Anklets </a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'category' 'Unique Jewellery' %}">Unique Jewellery</a></li>
+            </ul>
+        </div>
+    </div>
+</header>

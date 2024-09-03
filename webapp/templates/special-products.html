@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>SVS</title>
+    <link href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" rel="stylesheet">
+
+    <style>
+        .swiper {
+            padding-bottom: 60px !important;
+            height: 300px; /* Increased height for better image display */
+        }
+        .swiper-wrapper {
+            align-items: center;
+        }
+        .swiper-slide {
+            position: relative;
+            border-radius: 10px; /* Slightly rounded corners */
+            height: 100%; /* Full height */
+            background-color: rgba(19, 18, 18, 0.55);
+            border: 1px solid #fff;
+            transition: 0.3s; /* Smooth transition */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 10px;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover to avoid stretching */
+            display: block;
+        }
+        .swiper-slide-content {
+
+            background-color: rgba(0, 0, 0, 0.5); /* Slightly transparent background for text */
+            /* border-radius: 5px; */
+            padding-left: 10px;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        .swiper-slide h4,
+        .swiper-slide p {
+            color: #fff;
+        }
+        .swiper-slide p {
+            margin-top: 10px;
+        }
+        .btn-outline-dark {
+            background-color: #fff;
+            color: #000;
+            border: 1px solid #000;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-align: center;
+            display: block;
+           width: 96%;
+           
+        }
+        .btn-outline-dark:hover {
+            background-color: #000;
+            color: #fff;
+        }
+        .swiper-slide.active {
+            height: 250px; /* Adjusted active height */
+        }
+        .prev,
+        .next {
+            cursor: pointer;
+            z-index: 100;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.65;
+            transition: 0.3s;
+        }
+        .prev:hover,
+        .next:hover {
+            opacity: 1;
+        }
+        .prev svg,
+        .next svg {
+            width: 24px; /* Increased size for better visibility */
+            height: 24px;
+        }
+        .prev svg path,
+        .next svg path {
+            fill: #A99260; /* Updated color for visibility */
+        }
+        .prev {
+            left: 20px; /* Adjusted positioning */
+        }
+        .next {
+            right: 20px; /* Adjusted positioning */
+        }
+        .pagination {
+            margin-left: 8px !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+            z-index: 100;
+        }
+        .pagination span {
+            font-size: 0;
+            opacity: 1;
+            margin: 0px 6px !important;
+            border: 1px solid #fff;
+        }
+        .pagination span.swiper-pagination-bullet-active {
+            background-color: transparent;
+            transform: scale(1.5);
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <h1 align="center">Special Products</h1>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            {% for product in products %}
+            <div class="swiper-slide">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                <div class="swiper-slide-content">
+                    <h4>{{ product.name }}</h4>
+                    <p>${{ product.price }} <a class="btn btn-outline-dark" href="{% url 'product' product.id %}">View Product</a></p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <br/>
+        <div class="pagination"></div>
+        <div class="prev">
+            <svg width="10" height="15" viewBox="0 0 10 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.2625 13.2375L3.5375 7.5L9.2625 1.7625L7.5 0L0 7.5L7.5 15L9.2625 13.2375Z" />
+            </svg>
+        </div>
+        <div class="next">
+            <svg width="10" height="15" viewBox="0 0 10 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.737305 13.2375L6.4623 7.5L0.737305 1.7625L2.4998 0L9.9998 7.5L2.4998 15L0.737305 13.2375Z" />
+            </svg>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.6/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper(".swiper", {
+            slidesPerView: 4,
+            spaceBetween: 50,
+            loop: false,
+            grabCursor: true,
+            centeredSlides: true,
+            slideActiveClass: "active",
+            navigation: {
+                nextEl: ".next",
+                prevEl: ".prev"
+            },
+            pagination: {
+                el: ".pagination",
+                clickable: true
+            },
+            autoplay: {
+                enabled: true,
+                delay: 2000
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                },
+                480: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                },
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 40
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+     {% extends 'base.html' %}
+
+       {% block content %}
+        <!-- Header-->
+     {% include 'mainheader.html' %}
+        <header class="bg-dark py-4">
+    <div id="productnames">
+        <ul class="nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"  href="#" id="traditionalDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Traditional Jewellery
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="traditionalDropdown">
+                    <li><a class="dropdown-item" href="#">Antique</a></li>
+                    <li><a class="dropdown-item" href="#">Temple</a></li>
+                    <li><a class="dropdown-item" href="#">Bridal</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="braceletsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Bracelets Jewellery
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="braceletsDropdown">
+                    <li><a class="dropdown-item" href="#">Cuff Jewellery</a></li>
+                    <li><a class="dropdown-item" href="#">Tennis Jewellery</a></li>
+                    <li><a class="dropdown-item" href="#">Charm Jewellery</a></li>
+                </ul>
+            </li>
+            <li><a class="nav-link" href="{% url 'category' 'Fancy Jewellery' %}">Fancy Jewellery</a></li>
+            <li><a class="nav-link" href="#">Pearls Jewellery</a></li>
+            <li><a class="nav-link" href="#">Kundan Sets Jewellery</a></li>
+            <li><a class="nav-link" href="#">Handmade Jewellery</a></li>
+            <li><a class="nav-link" href="#">Thread Jewellery</a></li>
+            <li><a class="nav-link" href="#">Anklets Jewellery</a></li>
+            <li><a class="nav-link" href="#">Unique Jewellery </a></li>
+        </ul>
+    </div>
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 style="color: #aaaaaa"; class="display-4 fw-bolder">Customer Details</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Please Fill the details</p>
+                </div>
+            </div>
+</header>
+     <div class="container">
+         <div class="row">
+
+                 <div class="col-md-6 offset-md-3">
+
+                     <br/><br/>
+                     <h1>   <strong>Billing Address</strong>  </h1>
+                     <br/><br/>
+                     <form method="POST" action="{% url 'update_info' %}" >
+                         {% csrf_token %}
+                         {{ form.as_p }}
+                         <br/><br/>
+                         <h1>    <strong>Shipping Address</strong> </h1>
+                         <br/><br/>
+                         {{ shipping_form.as_p }}
+
+
+                         <br/>
+                         <button type="submit" class="btn btn-secondary"> Update Profile </button>
+<br/><br/>
+</form>
+<a href="{% url 'update_password' %}" class="btn btn-success"> Update Password</a>
+
+                 </div>
+         </div>
+     </div>
+
+     {% endblock %}

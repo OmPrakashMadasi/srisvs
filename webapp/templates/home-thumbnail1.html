@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Image Layout</title>
+    <style>
+
+
+.gallery {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    grid-gap: 20px 10px;
+    border-radius: 20px;
+}
+
+.gallery .large {
+    grid-row: span 2;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    background-color: transparent;
+    border-radius: 20px;
+    border: 2px solid #fff; /* White border for contrast */
+    box-shadow: none;
+}
+
+.gallery .grid-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    margin-bottom: 20px;
+}
+
+.gallery figure {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    background-color: transparent;
+
+}
+
+.gallery figure:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.gallery figure img {
+    border-radius: 20px;
+
+}
+
+.gallery figure:hover img {
+    transform: scale(1.05);
+    filter: brightness(0.9);
+}
+
+.gallery figure figcaption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    align-content: end;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, .5);
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.6); /* Darker background for better contrast */
+
+    border-radius: 20px; /* Ensure border radius matches the image */
+}
+
+.gallery figure h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.gallery figure p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .gallery {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        overflow: hidden;
+    }
+
+    .gallery .large {
+        grid-row: auto;
+        grid-column: auto;
+    }
+
+    .gallery .grid-row {
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 20px; /* Ensure there's space between rows */
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery .grid-row {
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 10px; /* Less space between rows on small screens */
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <h1 align="center">Our Products </h1>
+    <div class="gallery">
+        <!-- Large Image Column -->
+        <div class="large">
+            <figure>
+                <a href="#">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeT0UdMXEK_1iXySZdT3fmvUaUx4r_BANHdA&s" alt="">
+                    <figcaption>
+                        <h1>Ear Rings</h1>
+
+                    </figcaption>
+                </a>
+            </figure>
+        </div>
+
+        <!-- Two Rows with 4 Images Each -->
+        <div>
+            <div class="grid-row">
+                <figure>
+                    <a href="#">
+                        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSdNT422IWNTwIbOQu3uevDXIfENSrOzzh0jfvydN0RFapfxFU6FA1-DSS3Ka5nFUYyktb9lohzow_wFFWbx-VQBfctgtbp5TZp4ra5_uM" alt="">
+                        <figcaption>
+                            <h1>Pendants</h1>
+
+                        </figcaption>
+                    </a>
+                </figure>
+                <figure>
+                    <a href="#">
+                        <img src="https://inayaaccessories.com/cdn/shop/files/img_4831_1080x1080.jpg?v=1696666605" alt="">
+                        <figcaption>
+                            <h1>Nose Pins</h1>
+
+                        </figcaption>
+                    </a>
+                </figure>
+                <figure>
+                    <a href="#">
+                        <img src="https://shyamsundarco.com/images/online_jewellery/new/jhumka//1.jpg?v=23082024122a" alt="">
+                        <figcaption>
+                            <h1>Necklaces</h1>
+
+                        </figcaption>
+                    </a>
+                </figure>
+                <figure>
+                    <a href="#">
+                        <img src="https://m.media-amazon.com/images/I/A1h5yfmWVtL._SX625_.jpg" alt="">
+                        <figcaption>
+                            <h1>Bangles</h1>
+
+                        </figcaption>
+                    </a>
+                </figure>
+            </div>
+            <div class="grid-row">
+                <figure>
+                    <a href="#">
+                        <img src="https://www.shutterstock.com/image-photo/white-pearl-drop-wedding-earrings-1706412046" alt="">
+                        <figcaption>
+                            <h1>Bracelets</h1>
+
+                        </figcaption>
+                    </a>
+                </figure>
+                <figure>
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                        <figcaption>
+                            <h1>Men's Rings</h1>
+
+                        </figcaption>
+                    </a>
+                </figure>
+                <figure>
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                        <figcaption>
+                            <h1>Women's Rings</h1>
+
+                        </figcaption>
+                    </a>
+                </figure>
+                <figure>
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                        <figcaption>
+                            <h1>Gem Stones</h1>
+
+                        </figcaption>
+                    </a>
+                </figure>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
